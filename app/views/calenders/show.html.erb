@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date 1:</strong>
+  <%= @calender.date_1 %>
+</p>
+
+<p>
+  <strong>Date 2:</strong>
+  <%= @calender.date_2 %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @calender.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_calender_path(@calender) %> |
+<%= link_to 'Back', calenders_path %>

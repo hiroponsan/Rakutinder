@@ -1,0 +1,39 @@
+<style>
+body {margin: 0 auto;
+}
+
+body {
+  text-align: center;
+}
+</style>
+
+<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+ <header>
+    <h2>Rakutinder</h2>
+
+      <%= form_tag("/result", :validate=> true, :method => :get ) do %>
+
+<h5>第一希望日<%= date_field("first", "born_on", :id => 'date_1',
+                                value: Time.now.strftime("%Y-%m-%d")) %>
+
+
+　　第二希望日<%= date_field("second", "born", :id => 'date_2', 
+                                value: Time.now.strftime("%Y-%m-%d")) %>
+
+
+<%= select_tag 'gender', options_for_select({"男性" => "m", "女性" => "f"}),  :prompt => "性別" %>
+
+
+<h4><button id="submit" onClick="return check()">検索する</button></h4>
+<% end %>
+</header>
+
+<% if @dates.present? %>
+<% @dates.each do |date| %>
+<div class="col-xs-12 col-md-6 col-lg-4">
+<p><%= date.nickname %></p>
+<p><%= image_tag date.avatar.url(:medium) %></p>
+<% end %>
+</div>
+<% end %>

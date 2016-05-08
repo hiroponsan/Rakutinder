@@ -1,0 +1,48 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+    <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
+
+  <div class="field">
+  <%= f.label :avatar %><br>
+  <%= f.file_field :avatar %>
+</div>
+
+  <p><%= select_tag 'user[gender]', options_for_select({"男性" => "m", "女性" => "f"}),  :prompt => "性別を選択してください" %></p>
+
+  <h5>第一希望日 <input id="user_born_on" name="user[date_2]" type="date" />
+
+   <p><%= select_tag 'user[date_1_time]', options_for_select({"18:00〜" => "18:00〜", "19:00〜" => "19:00〜","20:00〜" => "20:00〜","21:00〜" => "21:00〜","22:00〜" => "22:00〜",}),  :prompt => "希望時間を選択してください" %></p>
+
+第二希望日 <input id="user_born_on" name="user[date_2]" type="date" />
+   <p><%= select_tag 'user[date_2_time]', options_for_select({"18:00〜" => "18:00〜", "19:00〜" => "19:00〜","20:00〜" => "20:00〜","21:00〜" => "21:00〜","22:00〜" => "22:00〜",}),  :prompt => "希望時間を選択してください" %></p>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
