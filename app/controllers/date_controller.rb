@@ -10,4 +10,9 @@ class DateController < ApplicationController
     array << params_2
     @dates = User.where("date_1 IN (?) OR date_2 IN (?)", array, array).where(:gender => params[:gender] )
   end
+
+  def show
+    @date = User.find(params[:id])
+  end
+
 end

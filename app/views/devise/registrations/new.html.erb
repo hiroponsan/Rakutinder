@@ -20,7 +20,7 @@
 
   <p><%= select_tag 'user[gender]', options_for_select({"男性" => "m", "女性" => "f"}),  :prompt => "性別を選択してください" %></p>
 
-  <h5>第一希望日 <input id="user_born_on" name="user[date_2]" type="date" />
+  <h5>第一希望日 <input id="user_born_on" name="user[date_1]" type="date" />
 
    <p><%= select_tag 'user[date_1_time]', options_for_select({"18:00〜" => "18:00〜", "19:00〜" => "19:00〜","20:00〜" => "20:00〜","21:00〜" => "21:00〜","22:00〜" => "22:00〜",}),  :prompt => "希望時間を選択してください" %></p>
 

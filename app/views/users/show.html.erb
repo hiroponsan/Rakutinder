@@ -1,0 +1,48 @@
+<style>
+  #date_time_1 {
+    display: none;
+  }
+
+  #date_time_2 {
+    display: none;
+  }
+
+</style>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<p></p>
+<p><%= image_tag @user.avatar.url(:medium) %></p>
+<h4>ニックネーム : <%= @user.nickname %></h4>
+
+<h4>日付
+<select id="select" onchange="changeSelect()">
+<option>日時を選択してください</option>
+<option value="1"><%= Date.parse(@user.date_1).strftime("%Y年%m月%d日") %></option>
+<option value="2"><%= Date.parse(@user.date_2).strftime("%Y年%m月%d日") %></option>
+</select>
+</h4>
+<p id ="date_time_1"><input type="radio" name="example" value="サンプル">　<%= @user.date_1_time %></p>
+<p id ="date_time_2"><input type="radio" name="example" value="サンプル">　<%= @user.date_2_time %></p>
+
+
+<h4>デートを申し込む</h4>
+</div>
+
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+function changeSelect(){
+    var select = document.getElementById('select');
+    var options =
+        document.getElementById('select').options;
+    var value = options.item(select.selectedIndex).value;
+
+  if (value == 1){
+    $('#date_time_1').show();
+    $('#date_time_2').hide();
+}else if (value == 2){
+    $('#date_time_1').hide();
+    $('#date_time_2').show();
+  }
+}
+</script>

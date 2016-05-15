@@ -22,7 +22,7 @@ body {
                                 value: Time.now.strftime("%Y-%m-%d")) %>
 
 
-<%= select_tag 'gender', options_for_select({"男性" => "m", "女性" => "f"}),  :prompt => "性別" %>
+　性別　<%= select_tag 'gender', options_for_select({"男性" => "m", "女性" => "f"}) %>
 
 
 <h4><button id="submit" onClick="return check()">検索する</button></h4>
@@ -31,9 +31,15 @@ body {
 
 <% if @dates.present? %>
 <% @dates.each do |date| %>
-<div class="col-xs-12 col-md-6 col-lg-4">
-<p><%= date.nickname %></p>
+<div class="col-xs-12 col-md-4 col-lg-3">
+<p></p>
 <p><%= image_tag date.avatar.url(:medium) %></p>
-<% end %>
+<h4><a href ="/users/<%= date.id %>">ニックネーム : <%= date.nickname %></a></h4>
 </div>
 <% end %>
+<% end %>
+
+<% if @dates.empty? %>
+<h3>一人もいませんでした</h3>
+<% end %>
+
