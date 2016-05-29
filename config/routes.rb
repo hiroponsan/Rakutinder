@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show]
   root 'date#index'
   get '/result' => "date#result"
-  get '/users/:id' => "date#show"
+  get '/users/:id/mypage' => "users#mypage"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

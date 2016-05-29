@@ -24,7 +24,7 @@
   
   <body>
     <header>
-    <h2>　　　　　　　　　　Rakutinder　　　　　　　　　　<% if user_signed_in? %><a href ="/users/<%= @currentUser %>/mypage">マイページ</a><% else %><% end %></h2>
+    <h2>Rakutinder</h2>
 
       <%= form_tag("/result", :validate=> true, :method => :get ) do %>
 
@@ -41,18 +41,6 @@
 <h4><button id="submit" onClick="return check()">検索する</button></h4>
 <% end %>
 </header>
-
-<% if @users.present? %>
-<% @users.each do |user| %>
-<div class="col-xs-12 col-md-4 col-lg-3"><a href ="/users/<%= user.id %>">
-<%= image_tag user.avatar.url(:medium) %>
-<h4><a href ="/users/<%= user.id %>">ニックネーム : <%= user.nickname %></a></h4>
-<h4><a href ="/users/<%= user.id %>">第1候補日 : <%= Date.parse(user.date_1).strftime("%Y年%m月%d日") %></a></h4>
-<h4><a href ="/users/<%= user.id %>">第2候補日 : <%= Date.parse(user.date_2).strftime("%Y年%m月%d日") %></a></h4>
-<a href ="/users/<%= user.id %>"><button type="button" class="btn btn-danger">確認する</button></a>
-</div>
-<% end %>
-<% end %>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

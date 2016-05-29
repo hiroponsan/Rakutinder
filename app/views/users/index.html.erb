@@ -10,7 +10,7 @@ body {
 <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
  <header>
-    <h2>　　　　　　　　　　Rakutinder　　　　　　　　　　<% if user_signed_in? %><a href ="/users/<%= @currentUser %>/mypage">マイページ</a><% else %><% end %></h2>
+    <h2>Rakutinder</h2>
 
       <%= form_tag("/result", :validate=> true, :method => :get ) do %>
 
@@ -28,16 +28,12 @@ body {
 <h4><button id="submit" onClick="return check()">検索する</button></h4>
 <% end %>
 </header>
-
 <% if @dates.present? %>
 <% @dates.each do |date| %>
 <div class="col-xs-12 col-md-4 col-lg-3">
 <p></p>
 <p><%= image_tag date.avatar.url(:medium) %></p>
-<h4><a href ="/users/<%= date.id %>">ニックネーム : <%= date.nickname %></a></h4>
-<h4><a href ="/users/<%= date.id %>">第一候補日 :  <%= Date.parse(date.date_1).strftime("%Y年%m月%d日") %></a></h4>
-<h4><a href ="/users/<%= date.id %>">第一候補日 :  <%= Date.parse(date.date_2).strftime("%Y年%m月%d日") %></a></h4>
-<a href ="/users/<%= date.id %>"><button type="button" class="btn btn-danger">確認する</button></a>
+<h4><%= link_to 'ニックネーム :date.nickname', user_path %></h4>
 </div>
 <% end %>
 <% end %>
